@@ -9,7 +9,7 @@ CXXFLAGS = -Wall -Iinclude -MP -MD
 
 BUILD_DIR=build
 # 執行檔名
-TARGET = exec 
+TARGET = game
 
 # 以 SRCS 代表所有 .cc 檔案
 SRCS = $(wildcard *.cc)
