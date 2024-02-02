@@ -38,8 +38,11 @@ SHGame::oneRun()
 	ex: 遊戲中不能直接restart，需要先結束遊戲or放棄 */
 	switch(menu.getAnswer()){
 		case ONE_MORE:
-			if (gameStatus == IN_PROGRESS)
+			if (gameStatus == IN_PROGRESS){
 				moreCard();
+				player.showCards();
+				dealer.showCards();
+			}
 			else
 				cout<<"GAME OVER!"<<endl;
 			break;
@@ -54,8 +57,7 @@ SHGame::oneRun()
 		case QUIT:
 			return false;
 	}
-	player.showCards();
-	dealer.showCards();
+
 	return true;
 }
 
@@ -66,6 +68,10 @@ SHGame::oneRun()
 void
 SHGame::moreCard()
 {	
+	if(player.getNumCards()==5){
+		cout << "Game already ended!\n";
+		return;
+	}
 	/* FIB1: 各發一張牌*/
 	Card newCard1(dealer.giveCardID());
 	Card newCard2(dealer.giveCardID());
