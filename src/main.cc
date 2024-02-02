@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 
     // create an instance of the show hand game with the given player an dealer
     SHGame shgame(shplayer, shdealer);
-
+    
     // play the game until the user quit
     while(shgame.oneRun());
 

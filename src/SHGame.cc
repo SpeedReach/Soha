@@ -21,6 +21,9 @@ SHGame::SHGame(SHPlayer& shp, SHDealer& shd)
 	gameStatus = FIRST_TURN;
 	player.setLoan(initCredit);
 	dealer.setLoan(initCredit);
+	restart();
+	player.showCards();
+	dealer.showCards();
 }
 
 
@@ -30,30 +33,26 @@ SHGame::SHGame(SHPlayer& shp, SHDealer& shd)
 bool
 SHGame::oneRun()
 {
-	if(gameStatus == FIRST_TURN)
-		restart();
-	else{
-		menu.print();
-		/* 注意: 這邊皆需要檢查當前gameStatus能否執行該動作，
-		ex: 遊戲中不能直接restart，需要先結束遊戲or放棄 */
-		switch(menu.getAnswer()){
-			case ONE_MORE:
-				if (gameStatus == IN_PROGRESS)
-					moreCard();
-				else
-					cout<<"GAME OVER!"<<endl;
-				break;
-			case GIVE_UP:
-				/*	FIB2: 在遊戲中，玩家選擇放棄	*/;
-				cout << "FIB2: When in game, Player choose to giveup\n";
-				break;
-			case RESTART:
-				/*	FIB3: 在遊戲結束後，玩家選擇重新一局	*/;
-				cout << "FIB3: After the game ends, Player chooses to restart a new game. \n";
-				break;
-			case QUIT:
-				return false;
-		}
+	menu.print();
+	/* 注意: 這邊皆需要檢查當前gameStatus能否執行該動作，
+	ex: 遊戲中不能直接restart，需要先結束遊戲or放棄 */
+	switch(menu.getAnswer()){
+		case ONE_MORE:
+			if (gameStatus == IN_PROGRESS)
+				moreCard();
+			else
+				cout<<"GAME OVER!"<<endl;
+			break;
+		case GIVE_UP:
+			/*	FIB2: 在遊戲中，玩家選擇放棄	*/;
+			cout << "FIB2: When in game, Player choose to giveup\n";
+			break;
+		case RESTART:
+		/*	FIB3: 在遊戲結束後，玩家選擇重新一局	*/;
+			cout << "FIB3: After the game ends, Player chooses to restart a new game. \n";
+			break;
+		case QUIT:
+			return false;
 	}
 	player.showCards();
 	dealer.showCards();
