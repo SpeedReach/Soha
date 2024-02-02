@@ -19,6 +19,9 @@
 #ifndef _CONSOLE_MENU_H
 #define _CONSOLE_MENU_H
 
+
+enum Option {ONE_MORE = 1, GIVE_UP, RESTART, QUIT};
+
 class ConsoleMenu {
   
 public:
@@ -34,7 +37,7 @@ public:
   // get and return the user selection
   // it onlys checks for valid number input 
   // and will go crasy if a letter is entered.
-  int getAnswer() const;
+  Option getAnswer() const;
   
 private:
   int nItems; // number of menu items

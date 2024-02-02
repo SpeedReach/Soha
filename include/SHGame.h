@@ -16,7 +16,7 @@ const char* const menuItems[] = {"One more card",
             	                 "quit"
                                 };
 
-enum Option {ONE_MORE = 1, GIVE_UP, RESTART, QUIT};
+
 enum Status {FIRST_TURN = 0, IN_PROGRESS, ENDED, GAME_CALLED};
 
 // the show hand game

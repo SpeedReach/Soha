@@ -22,8 +22,6 @@ SHGame::SHGame(SHPlayer& shp, SHDealer& shd)
 	player.setLoan(initCredit);
 	dealer.setLoan(initCredit);
 	restart();
-	player.showCards();
-	dealer.showCards();
 }
 
 
@@ -109,6 +107,9 @@ SHGame::restart()
 	//發兩張牌
 	moreCard();
 	moreCard();
+	
+	player.showCards();
+	dealer.showCards();
 		
 	gameStatus = IN_PROGRESS;
 }

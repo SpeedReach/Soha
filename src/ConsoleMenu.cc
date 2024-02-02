@@ -80,7 +80,7 @@ ConsoleMenu::setMenuItem(int whichItem, const char *menuItem) {
  * Not satistied? Implement your own.
  */
 
-int 
+Option
 ConsoleMenu::getAnswer() const {
 
     int choice=0;
@@ -94,7 +94,7 @@ ConsoleMenu::getAnswer() const {
         
     } while((choice<=0)||(choice>nItems));
     cout << endl;
-    return choice;
+    return static_cast<Option>(choice);
 
 }
 
