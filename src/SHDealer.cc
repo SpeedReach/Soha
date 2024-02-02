@@ -12,15 +12,6 @@ SHDealer::SHDealer()
 	start();
 }
 
-
-// destructor
-/*SHDealer::~SHDealer()
-{
-	std::cout<<"SHDealer distruct"<<std::endl;
-	shdealer.~SHPlayer();
-}*/
-
-
 // distribute a card to the player
 int
 SHDealer::giveCardID()
@@ -91,42 +82,7 @@ SHDealer::shuffle()
 {
 	for(int i=0;i<52;++i)
 		deck[i] = i;
-	for(int i=0;i<52;++i){
-		int change = rand()%52;
-		int tmp = deck[change];
-		deck[change] = deck[i];
-		deck[i] = tmp;
-	}
+	std::cout << "FIB6: Suffle Card Logic\n";
+	/* FIB6: Dealer洗牌*/
 }
 
-
-// open the dealer's first card
-/*void
-SHDealer::openFirstCard()
-{
-	dealer.openFirstCard();
-}*/
-//change:call the member function directly
-
-
-// show the dealer's hand to the screen
-/*void
-SHDealer::showCards() const
-{
-	dealer.showCards();
-}*/
-//change:call the member function directly
-
-/*int
-SHDealer::getLoan() const
-{
-	return dealer.getLoan();
-}*/
-//change:call the member function directly
-
-/*void
-SHDealer::setLoan(int difference)
-{
-	dealer.setLoan(difference);
-}*/
-//change:call the member function directly

@@ -6,9 +6,10 @@
 using namespace std;
 
 // constructor
-Card::Card(int newId)
-{
-	setID(newId);
+Card::Card(int newId):
+	id(newId),
+	pip(newId/4),
+	suit(static_cast<Card::Suit>(newId%4)){
 }
 
 // Accessor: card id is an integer between 0 and 51.
@@ -32,19 +33,10 @@ Card::getPip() const
 }
 
 // get the suit of the card (0-3)
-int
+Card::Suit
 Card::getSuit() const
 {
 	return suit;
-}
-
-// set id directly
-void
-Card::setID(int newId)
-{
-	suit = newId%4;
-	pip = newId/4;
-	id = newId;
 }
 
 

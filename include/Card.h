@@ -12,7 +12,7 @@ public:
     // total number of cards for a standard deck of poker cards
     static const int kNCards = 52;
     // suit types
-    enum Suit {spade, heart, diamond, club};
+    enum Suit {spade = 0, heart, diamond, club};
 
     // Constructor
     Card(int myId = 0);
@@ -20,17 +20,14 @@ public:
     // accessors
     int getID() const;
     int getPip() const;
-    int getSuit() const;
-
-    // modifiers
-    void setID(int newId);
+    Suit getSuit() const;
 
 private:
 
-    // your private or internal stuff goes here
+    // private or internal stuff goes here
 	int id;
 	int pip;
-	int suit;
+	Suit suit;
 
 };
 

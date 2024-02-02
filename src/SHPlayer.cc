@@ -97,6 +97,7 @@ SHPlayer::showCards() const
 		}
 		std::cout<<std::endl;
 	}
+
 }
 
 // get the total points of the current hand
@@ -104,8 +105,9 @@ int
 SHPlayer::totalPips() const
 {
 	int sum = 0;
-	for(int i = 0;i<n_cards;++i)
-		sum =sum + cards[i].getPip()+1;
+
+	cout << "FIB7: Calculate total points.\n";
+
 	return sum;
 }
 
@@ -115,8 +117,6 @@ HandType
 SHPlayer::getHandPattern() 
 {
 	SHPlayer::sortCards();
-//	for(int i=0;i<5;++i)
-//		std::cout<<sortedCards[i].getID()<<std::endl;
 	if(isStraightFlush())
 		return STRAIGHT_FLUSH;
 	if(isFourOfAKind())
